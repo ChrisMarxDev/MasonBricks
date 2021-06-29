@@ -1,0 +1,6 @@
+linter:
+  rules:
+#    add more specific rules
+
+analyzer:
+  exclude: [scripts/**, bricks/**]

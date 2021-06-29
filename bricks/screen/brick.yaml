@@ -1,0 +1,4 @@
+name: screen
+description: A basic screen using bloc
+vars:
+  - name
