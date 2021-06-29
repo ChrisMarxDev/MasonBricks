@@ -5,11 +5,11 @@ import 'cubit/test_cubit.dart';
 
 
 class TestScreen extends StatelessWidget {
-const TestScreen({Key? key}) : super(key: key);
+  const TestScreen({Key? key}) : super(key: key);
 
-static PageRoute route() {
-  return MaterialPageRoute(builder: (context) => const TestScreen());
-}
+  static PageRoute route() {
+    return MaterialPageRoute(builder: (context) => const TestScreen());
+  }
 
   @override
   Widget build(BuildContext context) {
