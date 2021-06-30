@@ -27,6 +27,8 @@ class TestContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO implement
-    return Container();
+    return BlocBuilder<TestCubit,TestState>(builder: (context, state) {
+      return Container();
+    },);
   }
 }

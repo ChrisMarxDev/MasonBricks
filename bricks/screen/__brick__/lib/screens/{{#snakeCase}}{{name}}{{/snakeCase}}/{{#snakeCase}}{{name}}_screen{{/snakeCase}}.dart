@@ -27,6 +27,8 @@ class {{#pascalCase}}{{name}}{{/pascalCase}}Content extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO implement
-    return Container();
+    return BlocBuilder<{{#pascalCase}}{{name}}{{/pascalCase}}Cubit,{{#pascalCase}}{{name}}{{/pascalCase}}State>(builder: (context, state) {
+      return Container();
+    },);
   }
 }
