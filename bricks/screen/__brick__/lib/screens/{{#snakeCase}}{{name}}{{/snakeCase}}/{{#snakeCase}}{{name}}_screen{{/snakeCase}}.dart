@@ -16,12 +16,12 @@ class {{#pascalCase}}{{name}}{{/pascalCase}}Screen extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
         {{#pascalCase}}{{name}}{{/pascalCase}}Cubit(),
-        child: {{#pascalCase}}{{name}}{{/pascalCase}}Content(),
+        child: const {{#pascalCase}}{{name}}{{/pascalCase}}Content(),
       );
   }
 }
 
-class {{#pascalCase}}{{name}}{{/pascalCase}}Content extends StatelessWidget {
+class {{#pascalCase}}{{name}}{{/pascalCase}}View extends StatelessWidget {
   const {{#pascalCase}}{{name}}{{/pascalCase}}Content({Key? key}) : super(key: key);
 
   @override

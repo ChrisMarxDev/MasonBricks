@@ -10,5 +10,5 @@ abstract class {{#pascalCase}}{{name}}{{/pascalCase}}State extends Equatable {
 
 
 class {{#pascalCase}}{{name}}{{/pascalCase}}InitialState extends {{#pascalCase}}{{name}}{{/pascalCase}}State {
-  {{#pascalCase}}{{name}}{{/pascalCase}}InitialState() : super();
+  const {{#pascalCase}}{{name}}{{/pascalCase}}InitialState() : super();
 }

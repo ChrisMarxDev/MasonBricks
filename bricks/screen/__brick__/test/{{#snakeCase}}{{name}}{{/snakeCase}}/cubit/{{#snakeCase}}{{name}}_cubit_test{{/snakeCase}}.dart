@@ -1,7 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
-import '../../../lib/screens/test/cubit/{{#snakeCase}}{{name}}{{/snakeCase}}_cubit.dart';
+import 'package:mocktail/mocktail.dart';
+import '../../../lib/screens/{{#snakeCase}}{{name}}{{/snakeCase}}/cubit/{{#snakeCase}}{{name}}{{/snakeCase}}_cubit.dart';
 
 
 void main() {
@@ -10,7 +10,7 @@ void main() {
 
   setUp(() {
     // mockRepository = MockRepository();
-    // when(mockRepository.call()).thenReturn(mock);
+    // when(()=>mockRepository.call()).thenReturn(mock);
 
     cubit = {{#pascalCase}}{{name}}{{/pascalCase}}Cubit(
       // repository: mockRepository,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../lib//screens/test/{{#snakeCase}}{{name}}{{/snakeCase}}_screen.dart';
-import '../../lib/screens/test/cubit/{{#snakeCase}}{{name}}{{/snakeCase}}_cubit.dart';
+import '../../lib//screens/{{#snakeCase}}{{name}}{{/snakeCase}}/{{#snakeCase}}{{name}}{{/snakeCase}}_screen.dart';
+import '../../lib/screens/{{#snakeCase}}{{name}}{{/snakeCase}}/cubit/{{#snakeCase}}{{name}}{{/snakeCase}}_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 class Mock{{#pascalCase}}{{name}}{{/pascalCase}}Cubit extends Mock implements {{#pascalCase}}{{name}}{{/pascalCase}}Cubit {}
 
@@ -33,7 +33,7 @@ void main() {
     });
 
     testWidgets('Builds initial state', (WidgetTester tester) async {
-      when(cubit.state).thenReturn({{#pascalCase}}{{name}}{{/pascalCase}}InitialState());
+      when(()=>cubit.state).thenReturn({{#pascalCase}}{{name}}{{/pascalCase}}InitialState());
 
       final app = materialApp();
 
