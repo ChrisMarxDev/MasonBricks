@@ -11,10 +11,10 @@ void main() {
   late {{#pascalCase}}{{name}}{{/pascalCase}}Cubit cubit;
 
   Widget materialApp() => MaterialApp(
-    routes: {},
+    routes: const {},
     home: BlocProvider(
       create: (_) => cubit,
-      child: {{#pascalCase}}{{name}}{{/pascalCase}}Content(),
+      child: const {{#pascalCase}}{{name}}{{/pascalCase}}View(),
     ),
   );
 
@@ -22,25 +22,25 @@ void main() {
     cubit = Mock{{#pascalCase}}{{name}}{{/pascalCase}}Cubit();
   });
 
-  group('{{#pascalCase}}{{name}}{{/pascalCase}}Content:', () {
+  group('{{#pascalCase}}{{name}}{{/pascalCase}}View:', () {
     testWidgets('Renders', (WidgetTester tester) async {
       final app = materialApp();
 
       await tester.pumpWidget(app);
       await tester.pumpAndSettle();
 
-      expect(find.byType({{#pascalCase}}{{name}}{{/pascalCase}}Content), findsOneWidget);
+      expect(find.byType({{#pascalCase}}{{name}}{{/pascalCase}}View), findsOneWidget);
     });
 
     testWidgets('Builds initial state', (WidgetTester tester) async {
-      when(()=>cubit.state).thenReturn({{#pascalCase}}{{name}}{{/pascalCase}}InitialState());
+      when(()=>cubit.state).thenReturn(const {{#pascalCase}}{{name}}{{/pascalCase}}InitialState());
 
       final app = materialApp();
 
       await tester.pumpWidget(app);
       await tester.pumpAndSettle();
 
-      expect(find.byType({{#pascalCase}}{{name}}{{/pascalCase}}Content), findsOneWidget);
+      expect(find.byType({{#pascalCase}}{{name}}{{/pascalCase}}View), findsOneWidget);
     });
 
   // testWidgets('Calls X on tapping Y', (WidgetTester tester) async {

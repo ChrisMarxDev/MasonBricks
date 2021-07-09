@@ -4,6 +4,8 @@ import '../../lib//screens/{{#snakeCase}}{{name}}{{/snakeCase}}/{{#snakeCase}}{{
 import '../../lib/screens/{{#snakeCase}}{{name}}{{/snakeCase}}/cubit/{{#snakeCase}}{{name}}{{/snakeCase}}_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:bloc_test/bloc_test.dart';
+
 
 class Mock{{#pascalCase}}{{name}}{{/pascalCase}}Cubit extends Mock implements {{#pascalCase}}{{name}}{{/pascalCase}}Cubit {}
 
@@ -12,24 +14,30 @@ void main() {
 
   Widget materialApp() => MaterialApp(
     routes: {},
-    home: BlocProvider(
+    home: BlocProvider<{{#pascalCase}}{{name}}{{/pascalCase}}State>(
       create: (_) => cubit,
-      child: {{#pascalCase}}{{name}}{{/pascalCase}}Content(),
+      child: {{#pascalCase}}{{name}}{{/pascalCase}}View(),
     ),
   );
 
   setUp(() {
     cubit = Mock{{#pascalCase}}{{name}}{{/pascalCase}}Cubit();
+    when(() => cubit.close()).thenAnswer((invocation) async {});
+    whenListen<{{#pascalCase}}{{name}}{{/pascalCase}}State>(
+      cubit,
+      Stream.fromIterable([]),
+      initialState: const {{#pascalCase}}{{name}}{{/pascalCase}}InitialState(),
+  );
   });
 
-  group('{{#pascalCase}}{{name}}{{/pascalCase}}Content:', () {
+  group('{{#pascalCase}}{{name}}{{/pascalCase}}View:', () {
     testWidgets('Renders', (WidgetTester tester) async {
       final app = materialApp();
 
       await tester.pumpWidget(app);
       await tester.pumpAndSettle();
 
-      expect(find.byType({{#pascalCase}}{{name}}{{/pascalCase}}Content), findsOneWidget);
+      expect(find.byType({{#pascalCase}}{{name}}{{/pascalCase}}View), findsOneWidget);
     });
 
     testWidgets('Builds initial state', (WidgetTester tester) async {
@@ -40,7 +48,7 @@ void main() {
       await tester.pumpWidget(app);
       await tester.pumpAndSettle();
 
-      expect(find.byType({{#pascalCase}}{{name}}{{/pascalCase}}Content), findsOneWidget);
+      expect(find.byType({{#pascalCase}}{{name}}{{/pascalCase}}View), findsOneWidget);
     });
 
   // testWidgets('Calls X on tapping Y', (WidgetTester tester) async {
